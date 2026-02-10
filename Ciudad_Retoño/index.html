@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Talleres Ciudad Retoño</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Ciudad Retoño – Oferta de Talleres</h1>
+</header>
+
+<!-- ===== PANTALLA INICIAL ===== -->
+<section id="inicio" class="vista activa">
+  <h2>Selecciona a quién va dirigido</h2>
+
+  <div class="botones">
+    <button class="btn amarillo" onclick="mostrarCategoria('Infancias')">Infancias</button>
+    <button class="btn verde" onclick="mostrarCategoria('Juventudes')">Juventudes</button>
+    <button class="btn azul" onclick="mostrarCategoria('Adultos')">Persona adulta</button>
+  </div>
+</section>
+
+<!-- ===== LISTA ===== -->
+<section id="lista" class="vista">
+  <button class="btn regresar" onclick="irInicio()">← Regresar</button>
+
+  <h2 id="tituloCategoria"></h2>
+  <div id="contenedorTalleres" class="grid"></div>
+</section>
+
+<!-- ===== DETALLE ===== -->
+<section id="detalle" class="vista">
+
+  <button class="btn regresar" onclick="regresarLista()">← Regresar</button>
+
+  <div class="tarjeta-detalle">
+    <h2 id="d_taller"></h2>
+
+    <div class="foto">
+      Área para fotos próximamente
+    </div>
+
+    <p><b>Área:</b> <span id="d_area"></span></p>
+    <p><b>Facilitador:</b> <span id="d_facilitador"></span></p>
+    <p><b>Dirigido a:</b> <span id="d_poblacion"></span></p>
+    <p><b>Edades:</b> <span id="d_edades"></span></p>
+    <p><b>Días:</b> <span id="d_dias"></span></p>
+    <p><b>Horario:</b> <span id="d_hora"></span></p>
+    <p><b>Cuota:</b> <span id="d_cuota"></span></p>
+  </div>
+
+</section>
+
+
+<script>
+// ================= TODOS LOS TALLERES =================
+
+const talleres = [
+
+// ================= ARTES =================
+{
+area:"Artes",
+taller:"Danzas polinesias",
+facilitador:"Sofía García Velázquez",
+poblacion:"Infancias y juventudes",
+edades:"Desde los 4",
+dias:"Lunes y miércoles",
+hora:"15:00 a 16:00",
+cuota:"$250",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Danza aérea infantil",
+facilitador:"Paola Marín",
+poblacion:"Infancias",
+edades:"Hasta 12",
+dias:"Lunes y viernes",
+hora:"15:00 a 16:30",
+cuota:"$250 / $350",
+categoria:["Infancias"]
+},
+
+{
+area:"Artes",
+taller:"Danza aérea adultos",
+facilitador:"Paola Marín",
+poblacion:"Adultos",
+edades:"Desde 12",
+dias:"Lunes y viernes",
+hora:"16:30 a 18:00",
+cuota:"$250 / $350",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Danza aérea sábado",
+facilitador:"Ervin Portilla",
+poblacion:"Infancias y juventudes",
+edades:"Desde 8",
+dias:"Sábado",
+hora:"10:00 a 12:00",
+cuota:"$250",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Danza Folklórica",
+facilitador:"Ana Clara Ceballos Hernández",
+poblacion:"Infancias y juventudes",
+edades:"Desde 5",
+dias:"Martes y jueves",
+hora:"17:30 a 19:00",
+cuota:"$200",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Danza kids",
+facilitador:"Liliana Miranda Vargas",
+poblacion:"Infancias",
+edades:"Desde 4",
+dias:"Miércoles y viernes",
+hora:"16:00 a 17:00",
+cuota:"$280",
+categoria:["Infancias"]
+},
+
+{
+area:"Artes",
+taller:"Zumba",
+facilitador:"Liliana Miranda Vargas",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Miércoles y viernes",
+hora:"17:00 a 18:00",
+cuota:"$250",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Hula Hop infancias",
+facilitador:"Valentina Rodríguez Pacheco",
+poblacion:"Infancias",
+edades:"7 a 12",
+dias:"Martes y jueves",
+hora:"15:00 a 17:00",
+cuota:"$300",
+categoria:["Infancias"]
+},
+
+{
+area:"Artes",
+taller:"Hula Hop adolescentes",
+facilitador:"Valentina Rodríguez Pacheco",
+poblacion:"Adolescentes y adultos",
+edades:"Desde 13",
+dias:"Martes y jueves",
+hora:"17:00 a 19:00",
+cuota:"$300",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Circo",
+facilitador:"Isael Anastacio",
+poblacion:"Infancias y adolescencias",
+edades:"Desde 6",
+dias:"Miércoles y viernes",
+hora:"17:00 a 18:45",
+cuota:"$180",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Circo sábado",
+facilitador:"Isael Anastacio",
+poblacion:"Infancias y adolescencias",
+edades:"Desde 6",
+dias:"Sábado",
+hora:"11:00 a 13:00",
+cuota:"$180",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Creación musical y mezcla",
+facilitador:"Juan Daniel Martínez Luis",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Martes",
+hora:"16:00 a 18:00",
+cuota:"$250",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Bajo eléctrico",
+facilitador:"Luis Antonio Cruz Gutiérrez",
+poblacion:"Juventudes y adultos",
+edades:"Desde 9",
+dias:"Miércoles y sábados",
+hora:"17:00 a 18:30 / 13:00 a 14:30",
+cuota:"$400 una / $600 dos clases",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Piano",
+facilitador:"Yoltzin Ali y Angel Isaac",
+poblacion:"Todas las edades",
+edades:"Desde 8",
+dias:"Sábado",
+hora:"10:00 a 12:00",
+cuota:"$320",
+categoria:["Infancias","Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Canto",
+facilitador:"José Emilio Ramírez",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Sábado",
+hora:"11:00 a 13:00",
+cuota:"$300",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Guitarra",
+facilitador:"José Emilio Ramírez",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Sábado",
+hora:"13:00 a 14:30",
+cuota:"$300",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Batería principiantes",
+facilitador:"Yoltzin Ali Lozano Reyes",
+poblacion:"Juventudes y adultos",
+edades:"Desde 10",
+dias:"Domingo",
+hora:"12:30 a 14:00",
+cuota:"$320",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Grabado",
+facilitador:"Arturo Contreras",
+poblacion:"Juventudes y adultos",
+edades:"Desde 10",
+dias:"Martes y jueves",
+hora:"16:00 a 18:00",
+cuota:"$300",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Artes",
+taller:"Artes plásticas",
+facilitador:"Yesica Lozano Reyes",
+poblacion:"Infancias y juventudes",
+edades:"Desde 8",
+dias:"Viernes y sábado",
+hora:"15:00 a 16:00 / 12:00 a 13:00",
+cuota:"$230",
+categoria:["Infancias","Juventudes"]
+},
+
+{
+area:"Artes",
+taller:"Porcelana fría",
+facilitador:"Denisse Viveros",
+poblacion:"Infancias",
+edades:"8 a 10",
+dias:"Miércoles",
+hora:"15:00 a 16:00",
+cuota:"$250",
+categoria:["Infancias"]
+},
+
+{
+area:"Artes",
+taller:"Fotografía",
+facilitador:"Itzel Vanessa Munguía",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Domingo",
+hora:"10:00 a 13:00",
+cuota:"$500",
+categoria:["Juventudes","Adultos"]
+},
+
+// ================= DEPORTES =================
+
+{
+area:"Deportes",
+taller:"Parkour Kids",
+facilitador:"Jaid Lozano Reyes",
+poblacion:"Infancias",
+edades:"5 a 11",
+dias:"Sábado",
+hora:"10:00 a 11:30",
+cuota:"$100",
+categoria:["Infancias"]
+},
+
+{
+area:"Deportes",
+taller:"Parkour mixto",
+facilitador:"Jaid Lozano Reyes",
+poblacion:"Juventudes",
+edades:"Desde 12",
+dias:"Sábado",
+hora:"12:00 a 14:00",
+cuota:"$100",
+categoria:["Juventudes"]
+},
+
+{
+area:"Deportes",
+taller:"Parkour Open GYM",
+facilitador:"Jesús Oliver Flores",
+poblacion:"Juventudes y adultos",
+edades:"Desde 14",
+dias:"Martes, jueves y domingo",
+hora:"Horarios amplios",
+cuota:"$100",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Deportes",
+taller:"Parkour kids iniciación",
+facilitador:"Jesús Oliver Flores",
+poblacion:"Infancias",
+edades:"Desde 9",
+dias:"Martes y jueves",
+hora:"15:00 a 16:30",
+cuota:"$250",
+categoria:["Infancias"]
+},
+
+{
+area:"Deportes",
+taller:"Parkour intermedio",
+facilitador:"Jesús Oliver Flores",
+poblacion:"Juventudes y adultos",
+edades:"Desde 12",
+dias:"Martes y jueves",
+hora:"16:30 a 18:30",
+cuota:"$250",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Deportes",
+taller:"Kung Fu",
+facilitador:"Rodrigo Sandoval García",
+poblacion:"Todas las edades",
+edades:"Desde 5",
+dias:"Sábado y domingo",
+hora:"9:00 a 10:00",
+cuota:"$200",
+categoria:["Infancias","Juventudes","Adultos"]
+},
+
+{
+area:"Deportes",
+taller:"Boxeo chino",
+facilitador:"Rodrigo Sandoval García",
+poblacion:"Juventudes y adultos",
+edades:"Desde 14",
+dias:"Sábado y domingo",
+hora:"10:30 a 12:00",
+cuota:"$250",
+categoria:["Juventudes","Adultos"]
+},
+
+// ================= OFICIOS =================
+
+{
+area:"Oficios",
+taller:"Club de costura",
+facilitador:"Gabriela Nájera",
+poblacion:"Todas las edades",
+edades:"Desde 6",
+dias:"Lunes",
+hora:"15:00 a 17:30",
+cuota:"$250",
+categoria:["Infancias","Juventudes","Adultos"]
+},
+
+{
+area:"Oficios",
+taller:"Encuadernación",
+facilitador:"Wilfrido Salvador",
+poblacion:"Juventudes y adultos",
+edades:"Desde 16",
+dias:"Viernes y sábado",
+hora:"16:00 a 18:00",
+cuota:"$350",
+categoria:["Juventudes","Adultos"]
+},
+
+{
+area:"Oficios",
+taller:"Cartonería",
+facilitador:"Susana Reyes",
+poblacion:"Todas las edades",
+edades:"Desde 7",
+dias:"Sábado",
+hora:"10:00 a 12:30",
+cuota:"$400",
+categoria:["Infancias","Juventudes","Adultos"]
+},
+
+// ================= BIENESTAR =================
+
+{
+area:"Bienestar",
+taller:"Yoga matutino",
+facilitador:"Lizbet Lugo",
+poblacion:"Adultos",
+edades:"18+",
+dias:"Lunes, miércoles y viernes",
+hora:"8:30 a 9:30",
+cuota:"$350",
+categoria:["Adultos"]
+},
+
+{
+area:"Bienestar",
+taller:"Activación adulto mayor",
+facilitador:"Jaid Lozano Reyes",
+poblacion:"Adultos mayores",
+edades:"50+",
+dias:"Jueves",
+hora:"15:00 a 16:30",
+cuota:"Cooperación",
+categoria:["Adultos"]
+}
+
+];
+
+
+// ========== FUNCIONES ==========
+
+function colorArea(area){
+if(area=="Artes") return "b-artes";
+if(area=="Deportes") return "b-deportes";
+if(area=="Oficios") return "b-oficios";
+if(area=="Bienestar") return "b-bienestar";
+return "";
+}
+
+function mostrarCategoria(cat){
+
+cambiarVista("lista");
+tituloCategoria.innerText="Talleres para: "+cat;
+
+contenedorTalleres.innerHTML="";
+
+talleres.filter(t=>t.categoria.includes(cat))
+.forEach(t=>{
+
+contenedorTalleres.innerHTML+=`
+
+<div class="tarjeta ${colorArea(t.area)}"
+onclick='verDetalle(${JSON.stringify(t)})'>
+
+<h3>${t.taller}</h3>
+<p>${t.area}</p>
+<p>${t.dias}</p>
+
+</div>`;
+});
+}
+
+function verDetalle(t){
+cambiarVista("detalle");
+
+d_taller.innerText=t.taller;
+d_area.innerText=t.area;
+d_facilitador.innerText=t.facilitador;
+d_poblacion.innerText=t.poblacion;
+d_edades.innerText=t.edades;
+d_dias.innerText=t.dias;
+d_hora.innerText=t.hora;
+d_cuota.innerText=t.cuota;
+}
+
+function irInicio(){cambiarVista("inicio");}
+function regresarLista(){cambiarVista("lista");}
+
+function cambiarVista(id){
+document.querySelectorAll(".vista")
+.forEach(v=>v.classList.remove("activa"));
+document.getElementById(id).classList.add("activa");
+}
+
+</script>
+</body>
+</html>

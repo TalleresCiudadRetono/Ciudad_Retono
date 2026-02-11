@@ -1,72 +1,319 @@
 :root{
---amarillo:#FFD93D;
---verde:#A8E063;
---azul:#6EC1E4;
---rosa:#FF8FAB;
---naranja:#FFA726;
 
---artes:#FFB703;
---deportes:#2A9D8F;
---oficios:#8E7DBE;
---bienestar:#E76F51;
+  --artes:#b587e4;
+  --deportes:#ed6767;
+  --oficios:#6fdc83;
+  --bienestar:#4fa2f6;
+
+  --amarillo:#FFD93D;
+  --verde:#6BCB77;
+  --azul:#4D96FF;
+  --rosa:#FF6B9C;
+  --naranja:#FF9F1C;
+
+  --fondo:#f6f7fb;
+  --texto:#1e1e1e;
+}
+
+/* Bordes por área */
+.b-artes{border-left:32px solid var(--artes);}
+.b-deportes{border-left:32px solid var(--deportes);}
+.b-oficios{border-left:32px solid var(--oficios);}
+.b-bienestar{border-left:32px solid var(--bienestar);}
+
+
+/* ===== BASE ===== */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Montserrat', sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body{
-font-family:Arial;
-margin:0;
-background:#f2f2f2;
+  background:var(--fondo);
 }
 
-header{
-background:var(--verde);
-padding:20px;
+/* ===== TRANSICIÓN ENTRE VISTAS ===== */
+
+/* Todas las vistas excepto inicio */
+.vista{
+  display:none;
+  opacity:0;
+  transition: opacity .6s ease, transform .6s ease;
 }
 
-.vista{display:none;padding:20px;}
-.activa{display:block;}
+/* La que está activa */
+.activa{
+  display:block;
+  opacity:1;
+}
 
-.botones{display:flex;gap:15px;flex-wrap:wrap;}
+/* El inicio SIEMPRE visible */
+#inicio{
+  display:block !important;
+  opacity:1 !important;
+}
+
+
+.activa{
+  display:block;
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  min-height:90vh;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.65)
+  ),
+  url("imagenes/retono1.jpg"),
+  url("imagenes/retono4.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-blend-mode:overlay;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+
+  animation: aparecer 1s ease;
+}
+
+@keyframes aparecer{
+  from{
+    opacity:0;
+    transform: scale(.95);
+  }
+  to{
+    opacity:1;
+    transform: scale(1);
+  }
+}
+
+.capa{
+  backdrop-filter:blur(2px);
+  padding:320px;
+}
+
+/* ===== BOTONES ===== */
+
+.boton-facebook {
+  display: inline-block;
+  background: #1877f2;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition:.3s;
+}
+
+.boton-facebook:hover {
+  background: #125ec2;
+  transform: scale(1.05);
+}
+
+.botones{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:25px 0;
+}
 
 .btn{
-padding:12px 18px;
-border:none;
-border-radius:10px;
-cursor:pointer;
+  border:none;
+  padding:14px 22px;
+  font-size:1.1rem;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
 }
 
 .amarillo{background:var(--amarillo);}
-.verde{background:var(--verde);}
-.azul{background:var(--azul);}
+.verde{background:var(--verde); color:white;}
+.azul{background:var(--azul); color:white;}
 
-.regresar{background:var(--naranja);}
+.btn:hover{
+  transform:translateY(-3px) scale(1.04);
+}
+
+/* ===== TARJETAS ===== */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  padding:20px;
 }
 
 .tarjeta{
-background:white;
-padding:12px;
-cursor:pointer;
+  background: linear-gradient(to bottom, #fbf5fa, #f4e96d);
+  padding:16px;
+  border-radius:14px;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  cursor:pointer;
+
+  /* ANIMACIÓN DE ENTRADA */
+  opacity:0;
+  animation: subir .6s ease forwards;
+
+  /* 👇 EFECTO CRECER AL ACERCAR CURSOR */
+  transition: all .3s ease;
 }
 
-.b-artes{border-left:10px solid var(--artes);}
-.b-deportes{border-left:10px solid var(--deportes);}
-.b-oficios{border-left:10px solid var(--oficios);}
-.b-bienestar{border-left:10px solid var(--bienestar);}
+/* 👉 ESTE ES EL EFECTO QUE PEDISTE */
+.tarjeta:hover{
+  transform: scale(1.06);
+  box-shadow:0 10px 20px rgba(0,0,0,.18);
+}
+
+@keyframes subir{
+  from{
+    opacity:0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== DETALLE ===== */
 
 .tarjeta-detalle{
-background:white;
-padding:20px;
-max-width:600px;
+  background:white;
+  max-width:700px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
+  background: linear-gradient(to bottom, #fbf5fa, #f4e96d);
+
+  animation: zoom .5s ease;
+}
+
+@keyframes zoom{
+  from{
+    opacity:0;
+    transform: scale(.96);
+  }
+  to{
+    opacity:1;
+    transform: scale(1);
+  }
 }
 
 .foto{
-height:140px;
-background:#eee;
-display:flex;
-align-items:center;
-justify-content:center;
+  height:220px;
+  background:#eee;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:15px;
+}
+
+.foto img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+/* ===== ALIADOS ===== */
+
+.aliados{
+  padding:30px;
+  text-align:center;
+  background: black;
+}
+
+.logos-superiores{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.logo-izq,
+.logo-der{
+  width: 120px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  background: white;
+  padding: 5px;
+}
+
+/* ===== BARRA DE ÁREAS ===== */
+
+.barra-areas{
+  display:flex;
+  width:100%;
+  height:35px;
+  font-weight:bold;
+  text-align:center;
+
+  opacity:0;
+  animation: bajar .8s ease forwards;
+  animation-delay:.5s;
+}
+
+@keyframes bajar{
+  from{
+    opacity:0;
+    transform: translateY(-20px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+.area{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.artes{background: var(--artes);}
+.deportes{background: var(--deportes);}
+.oficios{background: var(--oficios);}
+.bienestar{background: var(--bienestar);}
+
+/* ===== MÓVIL ===== */
+
+@media(max-width:700px){
+
+  .btn{
+    width:100%;
+  }
+
+  .tarjeta:hover{
+    transform: scale(1.03);
+  }
+
+  .logo-izq,
+  .logo-der{
+    width: 70px;
+  }
+
 }

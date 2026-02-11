@@ -1,3 +1,23 @@
+
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+
+
 :root{
 
   --artes:#b587e4;
@@ -319,4 +339,5 @@ body{
 }
 
 grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+
 

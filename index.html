@@ -2,28 +2,41 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 <title>Talleres Ciudad Retoño</title>
 <link rel="stylesheet" href="estilo.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
 
-<header>
-  <h1>Ciudad Retoño – Oferta de Talleres</h1>
-</header>
 
 <!-- ===== PANTALLA INICIAL ===== -->
-<section id="inicio" class="vista activa">
-  <h2>Selecciona a quién va dirigido</h2>
+<section id="inicio" class="vista activa hero">
 
-  <div class="botones">
-    <button class="btn amarillo" onclick="mostrarCategoria('Infancias')">Infancias</button>
-    <button class="btn verde" onclick="mostrarCategoria('Juventudes')">Juventudes</button>
-    <button class="btn azul" onclick="mostrarCategoria('Adultos')">Persona adulta</button>
+
+
+  <div class="capa">
+
+    <div class="botones">
+      <button class="btn amarillo" onclick="mostrarCategoria('Infancias')">Infancias</button>
+      <button class="btn verde" onclick="mostrarCategoria('Juventudes')">Juventudes</button>
+      <button class="btn azul" onclick="mostrarCategoria('Adultos')">Persona adulta</button>
+    </div>
+
+
+
   </div>
+
+
+
 </section>
+
+<div class="logos-superiores">
+  <img src="imagenes/logo_cauce.png" class="logo-izq">
+  <p>cultura de paz</p>
+  <img src="imagenes/logo_retoño.jpg" class="logo-der">
+</div>
+
 
 <!-- ===== LISTA ===== -->
 <section id="lista" class="vista">
@@ -33,6 +46,26 @@
   <div id="contenedorTalleres" class="grid"></div>
 </section>
 
+
+<section class="aliados">
+  <h2>Sé parte de nuestra comunidad</h2>
+
+
+    <div class="contacto">
+      
+
+      <a class="boton-facebook"
+        href="https://www.facebook.com/FccCiudadRetono/"
+        target="visor">
+        Retoño Facebook
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- ===== DETALLE ===== -->
 <section id="detalle" class="vista">
 
@@ -41,9 +74,10 @@
   <div class="tarjeta-detalle">
     <h2 id="d_taller"></h2>
 
-    <div class="foto">
-      Área para fotos próximamente
-    </div>
+  <div class="foto">
+    <img id="d_imagen">
+  </div>
+
 
     <p><b>Área:</b> <span id="d_area"></span></p>
     <p><b>Facilitador:</b> <span id="d_facilitador"></span></p>
@@ -56,8 +90,21 @@
 
 </section>
 
+<body>
+
+  <div class="barra-areas">
+  <div class="area artes">Artes</div>
+  <div class="area deportes">Deportes</div>
+  <div class="area oficios">Oficios</div>
+  <div class="area bienestar">Bienestar</div>
+</div>
+
 
 <script>
+
+
+
+
 // ================= TODOS LOS TALLERES =================
 
 const talleres = [
@@ -326,7 +373,8 @@ edades:"5 a 11",
 dias:"Sábado",
 hora:"10:00 a 11:30",
 cuota:"$100",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -338,6 +386,7 @@ edades:"Desde 12",
 dias:"Sábado",
 hora:"12:00 a 14:00",
 cuota:"$100",
+imagen:"imagenes/parkour.jpg",
 categoria:["Juventudes"]
 },
 
@@ -468,51 +517,93 @@ categoria:["Adultos"]
 ];
 
 
+
 // ========== FUNCIONES ==========
 
 function colorArea(area){
-if(area=="Artes") return "b-artes";
-if(area=="Deportes") return "b-deportes";
-if(area=="Oficios") return "b-oficios";
-if(area=="Bienestar") return "b-bienestar";
-return "";
+
+  if(area=="Artes") return "b-artes";
+  if(area=="Deportes") return "b-deportes";
+  if(area=="Oficios") return "b-oficios";
+  if(area=="Bienestar") return "b-bienestar";
+
+  return "";
 }
 
 function mostrarCategoria(cat){
 
-cambiarVista("lista");
-tituloCategoria.innerText="Talleres para: "+cat;
+  cambiarVista("lista");
+  tituloCategoria.innerText = "Talleres para: " + cat;
 
-contenedorTalleres.innerHTML="";
+  contenedorTalleres.innerHTML = "";
 
-talleres.filter(t=>t.categoria.includes(cat))
-.forEach(t=>{
+  talleres
+  .filter(t => t.categoria.includes(cat))
+  .forEach((t, i) => {
 
-contenedorTalleres.innerHTML+=`
+    const div = document.createElement("div");
+    div.className = "tarjeta " + colorArea(t.area);
+    div.style.animationDelay = (i * 0.1) + "s";
 
-<div class="tarjeta ${colorArea(t.area)}"
-onclick='verDetalle(${JSON.stringify(t)})'>
 
-<h3>${t.taller}</h3>
-<p>${t.area}</p>
-<p>${t.dias}</p>
+    div.innerHTML = `
+      <h3>${t.taller}</h3>
+      <p>${t.area}</p>
+      <p>${t.dias}</p>
+    `;
 
-</div>`;
-});
+    // 👇 Evento REAL, sin trucos de string
+    div.onclick = () => verDetalle(t);
+
+    contenedorTalleres.appendChild(div);
+  });
+
+
+  window.scrollTo({
+    top: document.getElementById("lista").offsetTop,
+    behavior: "smooth"
+  });
+
 }
+
+
+
+
+
+function verDetalleIndex(i){
+  const t = talleres[i];
+  verDetalle(t);
+}
+
 
 function verDetalle(t){
-cambiarVista("detalle");
 
-d_taller.innerText=t.taller;
-d_area.innerText=t.area;
-d_facilitador.innerText=t.facilitador;
-d_poblacion.innerText=t.poblacion;
-d_edades.innerText=t.edades;
-d_dias.innerText=t.dias;
-d_hora.innerText=t.hora;
-d_cuota.innerText=t.cuota;
+  cambiarVista("detalle");
+
+  d_taller.innerText = t.taller;
+  d_area.innerText = t.area;
+  d_facilitador.innerText = t.facilitador;
+  d_poblacion.innerText = t.poblacion;
+  d_edades.innerText = t.edades;
+  d_dias.innerText = t.dias;
+  d_hora.innerText = t.hora;
+  d_cuota.innerText = t.cuota;
+
+  // 👇 AQUÍ SE CARGA LA IMAGEN
+  if(t.imagen){
+    d_imagen.src = t.imagen;
+  }else{
+    d_imagen.src = "imagenes/default.jpg";
+  }
+
+  window.scrollTo({
+    top: document.getElementById("detalle").offsetTop,
+    behavior: "smooth"
+  });
 }
+
+
+
 
 function irInicio(){cambiarVista("inicio");}
 function regresarLista(){cambiarVista("lista");}
@@ -526,4 +617,3 @@ document.getElementById(id).classList.add("activa");
 </script>
 </body>
 </html>
-

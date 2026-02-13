@@ -32,10 +32,11 @@ html{
   --deportes:#ed6767;
   --oficios:#6fdc83;
   --bienestar:#4fa2f6;
+  --educativo:#FFD93D;
 
-  --amarillo:#FFD93D;
-  --verde:#6BCB77;
-  --azul:#4D96FF;
+  --amarillo:#2b6de0;
+  --verde:#f1953e;
+  --azul:#9a3bf9;
 
   --fondo:#f6f7fb;
   --texto:#1e1e1e;
@@ -47,6 +48,8 @@ html{
 .b-deportes{border-left:32px solid var(--deportes);}
 .b-oficios{border-left:32px solid var(--oficios);}
 .b-bienestar{border-left:32px solid var(--bienestar);}
+.b-educativo{border-left:32px solid var(--educativo);}
+
 
 /* ===== BASE ===== */
 
@@ -308,6 +311,10 @@ body{
 .deportes{background: var(--deportes);}
 .oficios{background: var(--oficios);}
 .bienestar{background: var(--bienestar);}
+.educativo{
+  background: var(--educativo);
+  color:black;
+}
 
 /* ===== MÓVIL ===== */
 
@@ -348,3 +355,35 @@ body{
   }
 
 }
+
+/* ===== BOTONES POR ÁREA ===== */
+
+.botones-areas{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:10px 0 25px 0;
+}
+
+.btn-area{
+  border:none;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+  color:white;
+}
+
+.btn-area:hover{
+  transform:translateY(-3px);
+}
+
+/* Colores de cada área */
+.btn-area.artes{ background: var(--artes); }
+.btn-area.deportes{ background: var(--deportes); }
+.btn-area.oficios{ background: var(--oficios); }
+.btn-area.bienestar{ background: var(--bienestar); }
+.btn-area.educativo{ background: #f2c335; }
+

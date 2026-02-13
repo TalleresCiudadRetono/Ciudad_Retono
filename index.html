@@ -95,7 +95,16 @@
     <p><b>Días:</b> <span id="d_dias"></span></p>
     <p><b>Horario:</b> <span id="d_hora"></span></p>
     <p><b>Cuota:</b> <span id="d_cuota"></span></p>
+
+  <div class="detalle-resena">
+    <h3>Reseña</h3>
+    <p id="d_resena"></p>
   </div>
+
+  </div>
+
+
+
 
 </section>
 
@@ -122,40 +131,43 @@ const talleres = [
 {
 area:"Artes",
 taller:"Danzas polinesias",
-facilitador:"Sofía García Velázquez",
+facilitadora:"Sofía García Velázquez",
 poblacion:"Infancias y juventudes",
 edades:"Todas las edades desde los 4",
 dias:"Lunes y miércoles",
 hora:"15:00 a 16:00",
 cuota:"$250",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/polinecia1.jpeg",
+resena: "Las Danzas Polinesias son más que bailes, son cultura, son historias, son lenguaje, son conexión, son energía. Las pequeñas se divierten y las mayores conectan con su fuerza interior, todas mejoran coordinación, elasticidad, memoria, concentración y fuerza muscular."
 },
 
 {
 area:"Artes",
 taller:"Danza aérea infantil",
-facilitador:"Paola Marín",
+facilitadora:"Paola Marín",
 poblacion:"Infancias",
 edades:"Hasta 12",
 dias:"Lunes y viernes",
 hora:"15:00 a 16:30",
 cuota:"$250 / $350",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Danza aérea adultos",
-facilitador:"Paola Marín",
+facilitadora:"Paola Marín",
 poblacion:"Adultos",
 edades:"Desde 12",
 dias:"Lunes y viernes",
 hora:"16:30 a 18:00",
 cuota:"$250 / $350",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -163,77 +175,83 @@ area:"Artes",
 taller:"Danza aérea sábado",
 facilitador:"Ervin Portilla",
 poblacion:"Infancias y juventudes",
-edades:"Desde 8",
+edades:"Todas las edades desde 8",
 dias:"Sábado",
 hora:"10:00 a 12:00",
 cuota:"$250",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Danza Folklórica",
-facilitador:"Ana Clara Ceballos Hernández",
+facilitadora:"Ana Clara Ceballos Hernández",
 poblacion:"Infancias y juventudes",
 edades:"Todas las edades desde 5",
 dias:"Martes y jueves",
 hora:"17:30 a 19:00",
 cuota:"$200",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/folklor1.jpeg"
+imagen: "imagenes/folklor1.jpeg",
+resena:"Conecta con nuestras raíces y tradiciones a través de la danza. Aprenderás los pasos, la historia y la pasión de nuestros bailes tradicionales. Explora con nosotros este mundo colorido."
 },
 
 {
 area:"Artes",
 taller:"Danza kids",
-facilitador:"Liliana Miranda Vargas",
+facilitadora:"Liliana Miranda Vargas",
 poblacion:"Infancias",
-edades:"Desde 4",
+edades:"Todas las edades desde 4",
 dias:"Miércoles y viernes",
 hora:"16:00 a 17:00",
 cuota:"$280",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Zumba",
-facilitador:"Liliana Miranda Vargas",
+facilitadora:"Liliana Miranda Vargas",
 poblacion:"Juventudes y adultos",
 edades:"Desde 12",
 dias:"Miércoles y viernes",
 hora:"17:00 a 18:00",
 cuota:"$250",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Hula Hop infancias",
-facilitador:"Valentina Rodríguez Pacheco",
+facilitadora:"Valentina Rodríguez Pacheco",
 poblacion:"Infancias",
 edades:"7 a 12",
 dias:"Martes y jueves",
 hora:"15:00 a 17:00",
 cuota:"$300",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Hula Hop adolescentes",
-facilitador:"Valentina Rodríguez Pacheco",
+facilitadora:"Valentina Rodríguez Pacheco",
 poblacion:"Adolescentes y adultos",
-edades:"Desde 13",
+edades:"Todas las edades desde 13",
 dias:"Martes y jueves",
 hora:"17:00 a 19:00",
 cuota:"$300",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -241,12 +259,13 @@ area:"Artes",
 taller:"Circo",
 facilitador:"Isael Anastacio",
 poblacion:"Infancias y adolescencias",
-edades:"Desde 6",
+edades:"Todas las edades desde 6",
 dias:"Miércoles y viernes",
 hora:"17:00 a 18:45",
 cuota:"$180",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -254,12 +273,13 @@ area:"Artes",
 taller:"Circo sábado",
 facilitador:"Isael Anastacio",
 poblacion:"Infancias y adolescencias",
-edades:"Desde 6",
+edades:"Todas las edades desde 6",
 dias:"Sábado",
 hora:"11:00 a 13:00",
 cuota:"$180",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -267,12 +287,13 @@ area:"Artes",
 taller:"Creación musical y mezcla",
 facilitador:"Juan Daniel Martínez Luis",
 poblacion:"Juventudes y adultos",
-edades:"Desde 12",
+edades:"Todas las edades desde 12",
 dias:"Martes",
 hora:"16:00 a 18:00",
 cuota:"$250",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -280,12 +301,13 @@ area:"Artes",
 taller:"Bajo eléctrico",
 facilitador:"Luis Antonio Cruz Gutiérrez",
 poblacion:"Juventudes y adultos",
-edades:"Desde 9",
+edades:"Todas las edades desde 9",
 dias:"Miércoles y sábados",
 hora:"17:00 a 18:30 / 13:00 a 14:30",
 cuota:"$400 una / $600 dos clases",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -298,7 +320,8 @@ dias:"Sábado",
 hora:"10:00 a 12:00",
 cuota:"$320",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -311,7 +334,8 @@ dias:"Sábado",
 hora:"11:00 a 13:00",
 cuota:"$300",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -324,7 +348,8 @@ dias:"Sábado",
 hora:"13:00 a 14:30",
 cuota:"$300",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -332,12 +357,13 @@ area:"Artes",
 taller:"Batería principiantes",
 facilitador:"Yoltzin Ali Lozano Reyes",
 poblacion:"Juventudes y adultos",
-edades:"Desde 10",
+edades:"Todas las edades desde 10",
 dias:"Domingo",
 hora:"12:30 a 14:00",
 cuota:"$320",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -345,51 +371,55 @@ area:"Artes",
 taller:"Grabado",
 facilitador:"Arturo Contreras",
 poblacion:"Juventudes y adultos",
-edades:"Desde 10",
+edades:"Todas las edades desde 10",
 dias:"Martes y jueves",
 hora:"16:00 a 18:00",
 cuota:"$300",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Artes plásticas",
-facilitador:"Yesica Lozano Reyes",
+facilitadora:"Yesica Lozano Reyes",
 poblacion:"Infancias y juventudes",
 edades:"Todas las edades desde 8",
 dias:"Viernes y sábado",
 hora:"15:00 a 16:00 / 12:00 a 13:00",
 cuota:"$230",
 categoria:["Infancias","Juventudes"],
-imagen: "imagenes/artesplasticas1.jpeg"
+imagen: "imagenes/artesplasticas1.jpeg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Porcelana fría",
-facilitador:"Denisse Viveros",
+facilitadora:"Denisse Viveros",
 poblacion:"Infancias",
 edades:"8 a 10",
 dias:"Miércoles",
 hora:"15:00 a 16:00",
 cuota:"$250",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Artes",
 taller:"Fotografía",
-facilitador:"Itzel Vanessa Munguía",
+facilitadora:"Itzel Vanessa Munguía",
 poblacion:"Juventudes y adultos",
 edades:"Desde 12",
 dias:"Domingo",
 hora:"10:00 a 13:00",
 cuota:"$500",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 // ================= DEPORTES =================
@@ -404,7 +434,8 @@ dias:"Sábado",
 hora:"10:00 a 11:30",
 cuota:"$100",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -418,7 +449,8 @@ hora:"12:00 a 14:00",
 cuota:"$100",
 imagen:"imagenes/parkour.jpg",
 categoria:["Juventudes"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -431,7 +463,8 @@ dias:"Martes, jueves y domingo",
 hora:"Horarios amplios",
 cuota:"$100",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -444,7 +477,8 @@ dias:"Martes y jueves",
 hora:"15:00 a 16:30",
 cuota:"$250",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -457,7 +491,8 @@ dias:"Martes y jueves",
 hora:"16:30 a 18:30",
 cuota:"$250",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 //////////////////////////////////////////////////////////---agregados abajo
 
@@ -471,7 +506,8 @@ dias:"Domingo",
 hora:"10:30 a 12:30",
 cuota:"$300",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -484,7 +520,8 @@ dias:"Lunes, Miércoles y viernes",
 hora:"15:30 a 16:30",
 cuota:"1 clase $250, dos clases $280, 3 clases $300",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -497,33 +534,36 @@ dias:"Lunes, Miércoles y viernes",
 hora:"17:00 a 18:30",
 cuota:"1 clase $250, dos clases $280, 3 clases $300",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Deportes",
 taller:"Patinaje principiante",
-facilitador:"",
+facilitadora:"",
 poblacion:"Infancias",
 edades:"Todas las edades desde 6",
 dias:"Lunes y Miércoles",
 hora:"15:30 a 17:00",
 cuota:"$250",
 categoria:["Infancias"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Deportes",
 taller:"Patinaje intermedio",
-facilitador:"",
+facilitadora:"",
 poblacion:"Infancias, Juventudes y adultos",
 edades:"Todas las edades desde 6",
 dias:"Miércoles y viernes",
 hora:"17:00 a 18:30",
 cuota:"$250",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -536,20 +576,22 @@ dias:"Sábado",
 hora:"15:00 a 17:00 y 10:00 a 12:00",
 cuota:"1 clase $250, 2 clases $350 y 3 clases $400",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Deportes",
 taller:"Defensa personal y entrenamiento para mujeres",
-facilitador:"Yesica Lozano Reyes",
+facilitadora:"Yesica Lozano Reyes",
 poblacion:"Infancias, Juventudes y adultos",
 edades:"Todas las edades desde 12",
 dias:"Sábado",
 hora:"10:00 a 11:30",
 cuota:"$230",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/defensamujeres1.jpeg"
+imagen: "imagenes/defensamujeres1.jpeg",
+resena:""
 },
 
 //////////////////////////////////////////////////////////--agregados arriba
@@ -558,12 +600,13 @@ area:"Deportes",
 taller:"Kung Fu",
 facilitador:"Rodrigo Sandoval García",
 poblacion:"Todas las edades",
-edades:"Desde 5",
+edades:"Todas las edades desde 5",
 dias:"Sábado y domingo",
 hora:"9:00 a 10:00",
 cuota:"$200",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -576,7 +619,8 @@ dias:"Sábado y domingo",
 hora:"10:30 a 12:00",
 cuota:"$250",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 // ================= OFICIOS =================
@@ -584,14 +628,15 @@ imagen: "imagenes/parkour3.jpg"
 {
 area:"Oficios",
 taller:"Club de costura",
-facilitador:"Gabriela Nájera",
+facilitadora:"Gabriela Nájera",
 poblacion:"Todas las edades",
 edades:"Desde 6",
 dias:"Lunes",
 hora:"15:00 a 17:30",
 cuota:"$250",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
@@ -604,20 +649,22 @@ dias:"Viernes y sábado",
 hora:"16:00 a 18:00",
 cuota:"$350",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/encuadernacion1.jpeg"
+imagen: "imagenes/encuadernacion1.jpeg",
+resena:""
 },
 
 {
 area:"Oficios",
 taller:"Cartonería",
-facilitador:"Susana Reyes",
+facilitadora:"Susana Reyes",
 poblacion:"Todas las edades",
 edades:"Todas las edades desde 7",
 dias:"Sábado",
 hora:"10:00 a 12:30",
 cuota:"$400",
 categoria:["Infancias","Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 // ================= BIENESTAR =================
@@ -625,14 +672,15 @@ imagen: "imagenes/parkour3.jpg"
 {
 area:"Bienestar",
 taller:"Yoga matutino",
-facilitador:"Lizbet Lugo",
+facilitadora:"Lizbet Lugo",
 poblacion:"Adultos",
-edades:"18+",
+edades:"Desde 18",
 dias:"Lunes, miércoles y viernes",
 hora:"8:30 a 9:30",
 cuota:"$350",
 categoria:["Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/yoga1.jpeg",
+resena:""
 },
 
 {
@@ -645,7 +693,8 @@ dias:"Jueves",
 hora:"15:00 a 16:30",
 cuota:"Cooperación",
 categoria:["Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 //----------------------------------agregados abajo 
@@ -660,20 +709,22 @@ dias:"Sábado",
 hora:"12:00 a 14:00",
 cuota:"$480",
 categoria:["Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 
 {
 area:"Bienestar",
 taller:"Yoga2",
-facilitador:"",
+facilitador:"Juventudes y Adultos",
 poblacion:"",
 edades:"Todas las edades desade 15",
 dias:"Martes y Jueves",
 hora:"17:00 a 18:30",
 cuota:"$350",
 categoria:["Juventudes","Adultos"],
-imagen: "imagenes/parkour3.jpg"
+imagen: "imagenes/parkour3.jpg",
+resena:""
 },
 //-------------------------------------agregados arriba
 
@@ -682,79 +733,85 @@ imagen: "imagenes/parkour3.jpg"
 {
   area:"Educativo",
   taller:"Observación de aves",
-  facilitador:"Carlos Montes",
+  facilitadora:"Alejandra Daniela Espinosa Silva",
   poblacion:"Infancias",
-  edades:"8 a 12",
+  edades:"de 8 a 12",
   dias:"Sábados",
   hora:"10:00 a 12:00",
   cuota:"$150",
   categoria:["Infancias"],
-  imagen: "imagenes/parkour3.jpg"
+  imagen: "imagenes/aves1.jpeg",
+  resena: "Este taller tiene como objetivo sensibilizar a las y los participantes sobre las aves y el medio que las rodea, mediante la enseñanza de las características básicas sobre las aves y las problemáticas a las que se enfrentan, junto con la actividad de la observación de aves, la cual es una actividad recreativa que se centra en reconocer, identificar y contemplar aves silvestres."
 },
 
 {
   area:"Educativo",
   taller:"Acompañar para crecer",
-  facilitador:"",
+  facilitadora:"Vera Lucia Vasquez",
   poblacion:"Infancias",
   edades:"de 2 a 4",
   dias:"Sábados",
   hora:"10:00 a 12:00",
   cuota:"$300",
   categoria:["Infancias"],
-  imagen: "imagenes/acompañar1.jpeg"
+  imagen: "imagenes/acompañar1.jpeg",
+  resena:""
 },
 
 {
   area:"Educativo",
   taller:"Estimulación temprana",
-  facilitador:"",
+  facilitador:"Vera Lucia Vasquez",
   poblacion:"Infancias",
   edades:"de 6 a 19 meses",
   dias:"Sábados",
   hora:"12:30 a 13:30",
   cuota:"$300",
   categoria:["Infancias"],
-  imagen: "imagenes/estimulacion1.jpeg"
+  imagen: "imagenes/estimulacion1.jpeg",
+  resena:""
 },
 
 {
   area:"Educativo",
   taller:"Frances infantil",
-  facilitador:"",
+  facilitadora:"",
   poblacion:"Infancias",
   edades:"5 a 12",
   dias:"Sábados",
   hora:"10:00 a 11:30",
   cuota:"$300",
   categoria:["Infancias"],
-  imagen: "imagenes/parkour3.jpg"
+  imagen: "imagenes/parkour3.jpg",
+  resena:""
 },
 
 {
   area:"Educativo",
   taller:"Inglés infantil",
-  facilitador:"",
+  facilitadora:"",
   poblacion:"Infancias",
   edades:"5 a 12",
   dias:"Sábados",
   hora:"11:30 a 12:50",
   cuota:"$300",
   categoria:["Infancias"],
-  imagen: "imagenes/parkour3.jpg"
+  imagen: "imagenes/parkour3.jpg",
+  resena:""
 },
 
 {
   area:"Educativo",
   taller:"Frances para adolecentes y adultos",
-  facilitador:"",
+  facilitadora:"Todas las edades",
   poblacion:"",
   edades:"Todas las edades desde 13",
   dias:"Sábados",
   hora:"13:00 a 14:20",
   cuota:"$300",
   categoria:["Infancias"],
-  imagen: "imagenes/parkour3.jpg"
+  imagen: "imagenes/parkour3.jpg",
+  resena:""
 }
 
 ];
@@ -832,6 +889,8 @@ function verDetalle(t){
   d_dias.innerText = t.dias;
   d_hora.innerText = t.hora;
   d_cuota.innerText = t.cuota;
+  d_resena.innerText = t.resena || "Próximamente más información sobre este taller.";
+
 
   // 👇 AQUÍ SE CARGA LA IMAGEN
   if(t.imagen){

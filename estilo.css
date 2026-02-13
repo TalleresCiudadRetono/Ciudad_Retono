@@ -387,3 +387,17 @@ body{
 .btn-area.bienestar{ background: var(--bienestar); }
 .btn-area.educativo{ background: #f2c335; }
 
+.detalle-resena{
+  margin-top:25px;
+  padding:18px;
+  background:#fff8e1;
+  border-left:5px solid #FFB300;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.detalle-resena h3{
+  margin-top:0;
+  color:#FFB300;
+}
+

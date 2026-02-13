@@ -89,7 +89,7 @@
 
 
     <p><b>Área:</b> <span id="d_area"></span></p>
-    <p><b>Facilitador:</b> <span id="d_facilitador"></span></p>
+    <p id="d_facilitador"></p>
     <p><b>Dirigido a:</b> <span id="d_poblacion"></span></p>
     <p><b>Edades:</b> <span id="d_edades"></span></p>
     <p><b>Días:</b> <span id="d_dias"></span></p>
@@ -883,7 +883,16 @@ function verDetalle(t){
 
   d_taller.innerText = t.taller;
   d_area.innerText = t.area;
-  d_facilitador.innerText = t.facilitador;
+if(t.facilitador){
+  d_facilitador.innerHTML = "<b>Facilitador:</b> " + t.facilitador;
+}
+else if(t.facilitadora){
+  d_facilitador.innerHTML = "<b>Facilitadora:</b> " + t.facilitadora;
+}
+else{
+  d_facilitador.innerHTML = "<b>Facilitación:</b> No especificado";
+}
+
   d_poblacion.innerText = t.poblacion;
   d_edades.innerText = t.edades;
   d_dias.innerText = t.dias;

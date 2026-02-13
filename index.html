@@ -24,6 +24,14 @@
       <button class="btn azul" onclick="mostrarCategoria('Adultos')">Persona adulta</button>
     </div>
 
+    <!-- BOTONES POR ÁREA -->
+    <div class="botones-areas">
+      <button class="btn-area artes" onclick="mostrarArea('Artes')">Artes</button>
+      <button class="btn-area deportes" onclick="mostrarArea('Deportes')">Deportes</button>
+      <button class="btn-area oficios" onclick="mostrarArea('Oficios')">Oficios</button>
+      <button class="btn-area bienestar" onclick="mostrarArea('Bienestar')">Bienestar</button>
+      <button class="btn-area educativo" onclick="mostrarArea('Educativo')">Educativo</button>
+    </div>
 
 
   </div>
@@ -93,13 +101,13 @@
 
 <body>
 
-  <div class="barra-areas">
-  <div class="area artes">Artes</div>
-  <div class="area deportes">Deportes</div>
-  <div class="area oficios">Oficios</div>
-  <div class="area bienestar">Bienestar</div>
-</div>
-
+    <div class="botones-areas">
+      <button class="btn-area artes" onclick="mostrarArea('Artes')">Artes</button>
+      <button class="btn-area deportes" onclick="mostrarArea('Deportes')">Deportes</button>
+      <button class="btn-area oficios" onclick="mostrarArea('Oficios')">Oficios</button>
+      <button class="btn-area bienestar" onclick="mostrarArea('Bienestar')">Bienestar</button>
+      <button class="btn-area educativo" onclick="mostrarArea('Educativo')">Educativo</button>
+    </div>
 
 <script>
 
@@ -116,11 +124,12 @@ area:"Artes",
 taller:"Danzas polinesias",
 facilitador:"Sofía García Velázquez",
 poblacion:"Infancias y juventudes",
-edades:"Desde los 4",
+edades:"Todas las edades desde los 4",
 dias:"Lunes y miércoles",
 hora:"15:00 a 16:00",
 cuota:"$250",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -132,7 +141,8 @@ edades:"Hasta 12",
 dias:"Lunes y viernes",
 hora:"15:00 a 16:30",
 cuota:"$250 / $350",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -144,7 +154,8 @@ edades:"Desde 12",
 dias:"Lunes y viernes",
 hora:"16:30 a 18:00",
 cuota:"$250 / $350",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -156,7 +167,8 @@ edades:"Desde 8",
 dias:"Sábado",
 hora:"10:00 a 12:00",
 cuota:"$250",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -164,11 +176,12 @@ area:"Artes",
 taller:"Danza Folklórica",
 facilitador:"Ana Clara Ceballos Hernández",
 poblacion:"Infancias y juventudes",
-edades:"Desde 5",
+edades:"Todas las edades desde 5",
 dias:"Martes y jueves",
 hora:"17:30 a 19:00",
 cuota:"$200",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/folklor1.jpeg"
 },
 
 {
@@ -180,7 +193,8 @@ edades:"Desde 4",
 dias:"Miércoles y viernes",
 hora:"16:00 a 17:00",
 cuota:"$280",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -192,7 +206,8 @@ edades:"Desde 12",
 dias:"Miércoles y viernes",
 hora:"17:00 a 18:00",
 cuota:"$250",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -204,7 +219,8 @@ edades:"7 a 12",
 dias:"Martes y jueves",
 hora:"15:00 a 17:00",
 cuota:"$300",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -216,7 +232,8 @@ edades:"Desde 13",
 dias:"Martes y jueves",
 hora:"17:00 a 19:00",
 cuota:"$300",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -228,7 +245,8 @@ edades:"Desde 6",
 dias:"Miércoles y viernes",
 hora:"17:00 a 18:45",
 cuota:"$180",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -240,7 +258,8 @@ edades:"Desde 6",
 dias:"Sábado",
 hora:"11:00 a 13:00",
 cuota:"$180",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -252,7 +271,8 @@ edades:"Desde 12",
 dias:"Martes",
 hora:"16:00 a 18:00",
 cuota:"$250",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -264,7 +284,8 @@ edades:"Desde 9",
 dias:"Miércoles y sábados",
 hora:"17:00 a 18:30 / 13:00 a 14:30",
 cuota:"$400 una / $600 dos clases",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -276,7 +297,8 @@ edades:"Desde 8",
 dias:"Sábado",
 hora:"10:00 a 12:00",
 cuota:"$320",
-categoria:["Infancias","Juventudes","Adultos"]
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -288,7 +310,8 @@ edades:"Desde 12",
 dias:"Sábado",
 hora:"11:00 a 13:00",
 cuota:"$300",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -300,7 +323,8 @@ edades:"Desde 12",
 dias:"Sábado",
 hora:"13:00 a 14:30",
 cuota:"$300",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -312,7 +336,8 @@ edades:"Desde 10",
 dias:"Domingo",
 hora:"12:30 a 14:00",
 cuota:"$320",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -324,7 +349,8 @@ edades:"Desde 10",
 dias:"Martes y jueves",
 hora:"16:00 a 18:00",
 cuota:"$300",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -332,11 +358,12 @@ area:"Artes",
 taller:"Artes plásticas",
 facilitador:"Yesica Lozano Reyes",
 poblacion:"Infancias y juventudes",
-edades:"Desde 8",
+edades:"Todas las edades desde 8",
 dias:"Viernes y sábado",
 hora:"15:00 a 16:00 / 12:00 a 13:00",
 cuota:"$230",
-categoria:["Infancias","Juventudes"]
+categoria:["Infancias","Juventudes"],
+imagen: "imagenes/artesplasticas1.jpeg"
 },
 
 {
@@ -348,7 +375,8 @@ edades:"8 a 10",
 dias:"Miércoles",
 hora:"15:00 a 16:00",
 cuota:"$250",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -360,7 +388,8 @@ edades:"Desde 12",
 dias:"Domingo",
 hora:"10:00 a 13:00",
 cuota:"$500",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 // ================= DEPORTES =================
@@ -388,7 +417,8 @@ dias:"Sábado",
 hora:"12:00 a 14:00",
 cuota:"$100",
 imagen:"imagenes/parkour.jpg",
-categoria:["Juventudes"]
+categoria:["Juventudes"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -400,7 +430,8 @@ edades:"Desde 14",
 dias:"Martes, jueves y domingo",
 hora:"Horarios amplios",
 cuota:"$100",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -412,7 +443,8 @@ edades:"Desde 9",
 dias:"Martes y jueves",
 hora:"15:00 a 16:30",
 cuota:"$250",
-categoria:["Infancias"]
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -424,9 +456,103 @@ edades:"Desde 12",
 dias:"Martes y jueves",
 hora:"16:30 a 18:30",
 cuota:"$250",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+//////////////////////////////////////////////////////////---agregados abajo
+
+{
+area:"Deportes",
+taller:"Parkour kids",
+facilitador:"",
+poblacion:"Infancias",
+edades:"Desde 4 a 12",
+dias:"Domingo",
+hora:"10:30 a 12:30",
+cuota:"$300",
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
 },
 
+{
+area:"Deportes",
+taller:"Parkour kids",
+facilitador:"",
+poblacion:"Infancias",
+edades:"Desde 6 a 9",
+dias:"Lunes, Miércoles y viernes",
+hora:"15:30 a 16:30",
+cuota:"1 clase $250, dos clases $280, 3 clases $300",
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Deportes",
+taller:"Parkour kids",
+facilitador:"",
+poblacion:"Infancias",
+edades:"Desde 10 a 14",
+dias:"Lunes, Miércoles y viernes",
+hora:"17:00 a 18:30",
+cuota:"1 clase $250, dos clases $280, 3 clases $300",
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Deportes",
+taller:"Patinaje principiante",
+facilitador:"",
+poblacion:"Infancias",
+edades:"Todas las edades desde 6",
+dias:"Lunes y Miércoles",
+hora:"15:30 a 17:00",
+cuota:"$250",
+categoria:["Infancias"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Deportes",
+taller:"Patinaje intermedio",
+facilitador:"",
+poblacion:"Infancias, Juventudes y adultos",
+edades:"Todas las edades desde 6",
+dias:"Miércoles y viernes",
+hora:"17:00 a 18:30",
+cuota:"$250",
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Deportes",
+taller:"Skate",
+facilitador:"",
+poblacion:"Infancias, Juventudes y adultos",
+edades:"Todas las edades desde 12",
+dias:"Sábado",
+hora:"15:00 a 17:00 y 10:00 a 12:00",
+cuota:"1 clase $250, 2 clases $350 y 3 clases $400",
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Deportes",
+taller:"Defensa personal y entrenamiento para mujeres",
+facilitador:"Yesica Lozano Reyes",
+poblacion:"Infancias, Juventudes y adultos",
+edades:"Todas las edades desde 12",
+dias:"Sábado",
+hora:"10:00 a 11:30",
+cuota:"$230",
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/defensamujeres1.jpeg"
+},
+
+//////////////////////////////////////////////////////////--agregados arriba
 {
 area:"Deportes",
 taller:"Kung Fu",
@@ -436,7 +562,8 @@ edades:"Desde 5",
 dias:"Sábado y domingo",
 hora:"9:00 a 10:00",
 cuota:"$200",
-categoria:["Infancias","Juventudes","Adultos"]
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -448,7 +575,8 @@ edades:"Desde 14",
 dias:"Sábado y domingo",
 hora:"10:30 a 12:00",
 cuota:"$250",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 // ================= OFICIOS =================
@@ -462,7 +590,8 @@ edades:"Desde 6",
 dias:"Lunes",
 hora:"15:00 a 17:30",
 cuota:"$250",
-categoria:["Infancias","Juventudes","Adultos"]
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -470,11 +599,12 @@ area:"Oficios",
 taller:"Encuadernación",
 facilitador:"Wilfrido Salvador",
 poblacion:"Juventudes y adultos",
-edades:"Desde 16",
+edades:"Todas las edades desde 16",
 dias:"Viernes y sábado",
 hora:"16:00 a 18:00",
 cuota:"$350",
-categoria:["Juventudes","Adultos"]
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/encuadernacion1.jpeg"
 },
 
 {
@@ -482,11 +612,12 @@ area:"Oficios",
 taller:"Cartonería",
 facilitador:"Susana Reyes",
 poblacion:"Todas las edades",
-edades:"Desde 7",
+edades:"Todas las edades desde 7",
 dias:"Sábado",
 hora:"10:00 a 12:30",
 cuota:"$400",
-categoria:["Infancias","Juventudes","Adultos"]
+categoria:["Infancias","Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 // ================= BIENESTAR =================
@@ -500,7 +631,8 @@ edades:"18+",
 dias:"Lunes, miércoles y viernes",
 hora:"8:30 a 9:30",
 cuota:"$350",
-categoria:["Adultos"]
+categoria:["Adultos"],
+imagen: "imagenes/parkour3.jpg"
 },
 
 {
@@ -512,7 +644,117 @@ edades:"50+",
 dias:"Jueves",
 hora:"15:00 a 16:30",
 cuota:"Cooperación",
-categoria:["Adultos"]
+categoria:["Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+//----------------------------------agregados abajo 
+
+{
+area:"Bienestar",
+taller:"Elaboración de productos herbolarios y cosmetica natural",
+facilitador:"",
+poblacion:"Adultos mayores",
+edades:"",
+dias:"Sábado",
+hora:"12:00 a 14:00",
+cuota:"$480",
+categoria:["Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+
+{
+area:"Bienestar",
+taller:"Yoga2",
+facilitador:"",
+poblacion:"",
+edades:"Todas las edades desade 15",
+dias:"Martes y Jueves",
+hora:"17:00 a 18:30",
+cuota:"$350",
+categoria:["Juventudes","Adultos"],
+imagen: "imagenes/parkour3.jpg"
+},
+//-------------------------------------agregados arriba
+
+// ================ EDUCATIVO  ====================
+
+{
+  area:"Educativo",
+  taller:"Observación de aves",
+  facilitador:"Carlos Montes",
+  poblacion:"Infancias",
+  edades:"8 a 12",
+  dias:"Sábados",
+  hora:"10:00 a 12:00",
+  cuota:"$150",
+  categoria:["Infancias"],
+  imagen: "imagenes/parkour3.jpg"
+},
+
+{
+  area:"Educativo",
+  taller:"Acompañar para crecer",
+  facilitador:"",
+  poblacion:"Infancias",
+  edades:"de 2 a 4",
+  dias:"Sábados",
+  hora:"10:00 a 12:00",
+  cuota:"$300",
+  categoria:["Infancias"],
+  imagen: "imagenes/acompañar1.jpeg"
+},
+
+{
+  area:"Educativo",
+  taller:"Estimulación temprana",
+  facilitador:"",
+  poblacion:"Infancias",
+  edades:"de 6 a 19 meses",
+  dias:"Sábados",
+  hora:"12:30 a 13:30",
+  cuota:"$300",
+  categoria:["Infancias"],
+  imagen: "imagenes/estimulacion1.jpeg"
+},
+
+{
+  area:"Educativo",
+  taller:"Frances infantil",
+  facilitador:"",
+  poblacion:"Infancias",
+  edades:"5 a 12",
+  dias:"Sábados",
+  hora:"10:00 a 11:30",
+  cuota:"$300",
+  categoria:["Infancias"],
+  imagen: "imagenes/parkour3.jpg"
+},
+
+{
+  area:"Educativo",
+  taller:"Inglés infantil",
+  facilitador:"",
+  poblacion:"Infancias",
+  edades:"5 a 12",
+  dias:"Sábados",
+  hora:"11:30 a 12:50",
+  cuota:"$300",
+  categoria:["Infancias"],
+  imagen: "imagenes/parkour3.jpg"
+},
+
+{
+  area:"Educativo",
+  taller:"Frances para adolecentes y adultos",
+  facilitador:"",
+  poblacion:"",
+  edades:"Todas las edades desde 13",
+  dias:"Sábados",
+  hora:"13:00 a 14:20",
+  cuota:"$300",
+  categoria:["Infancias"],
+  imagen: "imagenes/parkour3.jpg"
 }
 
 ];
@@ -527,6 +769,7 @@ function colorArea(area){
   if(area=="Deportes") return "b-deportes";
   if(area=="Oficios") return "b-oficios";
   if(area=="Bienestar") return "b-bienestar";
+  if(area=="Educativo") return "b-educativo";
 
   return "";
 }
@@ -615,7 +858,43 @@ document.querySelectorAll(".vista")
 document.getElementById(id).classList.add("activa");
 }
 
+
+function mostrarArea(areaSeleccionada){
+
+  cambiarVista("lista");
+
+  tituloCategoria.innerText = "Talleres del área: " + areaSeleccionada;
+
+  contenedorTalleres.innerHTML = "";
+
+  talleres
+  .filter(t => t.area === areaSeleccionada)
+  .forEach((t, i) => {
+
+    const div = document.createElement("div");
+    div.className = "tarjeta " + colorArea(t.area);
+    div.style.animationDelay = (i * 0.1) + "s";
+
+    div.innerHTML = `
+      <h3>${t.taller}</h3>
+      <p>${t.area}</p>
+      <p>${t.dias}</p>
+    `;
+
+    div.onclick = () => verDetalle(t);
+
+    contenedorTalleres.appendChild(div);
+  });
+
+  window.scrollTo({
+    top: document.getElementById("lista").offsetTop,
+    behavior: "smooth"
+  });
+}
+
+
 </script>
 </body>
 </html>
+
 
